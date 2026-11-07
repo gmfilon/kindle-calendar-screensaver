@@ -4,6 +4,9 @@ Consulta realizada el 6 de noviembre de 2026, hora de Buenos Aires. Investigaci�
 remota y lectura de código primario; ningún Kindle fue conectado o modificado.
 Los enlaces `main`, `master` y `latest` pueden cambiar; el registro
 [sources.json](sources.json) identifica las revisiones y hashes consultados.
+La referencia a no haber conectado un Kindle describe esa investigación inicial.
+La [validación posterior](hardware-observations.md) confirma jailbreak, entorno de
+ejecución y diagnóstico de lectura en el equipo objetivo; RTC y reposo aún no se probaron.
 
 ## Conclusión
 
@@ -15,7 +18,7 @@ avanzar sin resolver ese bloqueo.
 
 | Capacidad | Evidencia | Resultado |
 | --- | --- | --- |
-| Jailbreak exacto | Selector oficial Véra, entrada PW6 | Soporte declarado para 5.20.1.0.2; no ejecutado |
+| Jailbreak exacto | Selector oficial Véra, entrada PW6; validación posterior | Ejecutado en la unidad objetivo; Jobman y diagnóstico root confirmados |
 | Sustitución de reposo | Custom Screensaver: matriz PW6 | Probada por upstream con otros firmwares; pendiente en el objetivo |
 | Control de framebuffer | FBInk reconoce PW6/Bellatrix4/MTK | Soporte en código; binario/rotación/refresco por validar |
 | Despertar desde suspensión | KindleCron y código powerd | Probado upstream en otros modelos, no en PW6 |

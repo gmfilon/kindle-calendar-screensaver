@@ -20,5 +20,5 @@ printf '\n== RTC device availability (not proof of wake) ==\n'
 ls -ld /sys/class/rtc/rtc* /dev/rtc* 2>/dev/null || :
 printf '\n== powerd properties ==\n'
 if command -v lipc-probe >/dev/null; then
-    lipc-probe -a com.lab126.powerd 2>&1 || :
+    lipc-probe com.lab126.powerd 2>&1 || :
 fi

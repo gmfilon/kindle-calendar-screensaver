@@ -1,8 +1,8 @@
 # Kindle Calendar Screensaver
 
 Calendario mensual offline, en español, para Paperwhite 12 (PW6, 2024).
-Prototipo **0.2.0 para computadora**; integración con el Kindle pendiente de
-validación física. No es todavía una instalación funcional de screensaver.
+Prototipo **0.3.0** con diagnóstico ejecutado en el Kindle; integración de pantalla
+de reposo y RTC pendiente de validación. No es todavía un screensaver funcional.
 
 Véra declara soporte para PW6 con **5.20.1.0.2**. No se ha confirmado en este
 proyecto que el conjunto pantalla + suspensión + RTC funcione en ese firmware.
@@ -59,6 +59,8 @@ el firmware. La desinstalación conserva un staging modificado para revisión.
 | Componente | Estado |
 | --- | --- |
 | Generador, manifiesto y verificación SHA-256 | Implementados y probados en computadora |
+| Diagnóstico físico mediante KPM | Ejecutado; root, firmware, ABI y propiedades powerd confirmados |
+| Vista previa manual de 25 segundos | Preparada y probada con simulación; ensayo físico pendiente |
 | Ejecutor POSIX de una sola ejecución | Probado con reloj y backend simulados |
 | Planificador | Modelo ejecutable; KindleCron es candidato externo |
 | Backend de pantalla / puente de eventos | Pendiente de implementar tras observar el Kindle |
@@ -68,6 +70,8 @@ el firmware. La desinstalación conserva un staging modificado para revisión.
 Documentación: [viabilidad](docs/feasibility.md), [arquitectura](docs/architecture.md),
 [instalación y reversión](docs/installation.md), [pruebas físicas](docs/hardware-validation.md)
 y [resultados locales](docs/test-report.md).
+La [validación física](docs/hardware-observations.md) distingue lo observado en el
+Kindle de lo que todavía necesita ensayos.
 
 No ejecutar jailbreak ni habilitar integración de energía sin autorización
 explícita del propietario. No se incluyen exploits ni binarios descargados de

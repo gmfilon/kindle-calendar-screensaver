@@ -59,3 +59,17 @@ hacia la izquierda recupera exactamente el diseño horizontal legible.
 
 El protocolo [hardware-validation.md](hardware-validation.md) contiene los criterios
 pendientes antes de habilitar la integración o afirmar compatibilidad completa.
+
+## Revisión 0.3.0
+
+28 pruebas locales aprobadas. Las seis nuevas pruebas de la vista previa verifican
+render único con tiempo de inspección y redibujado, recuperación tras error de
+render, rechazo de checksum incorrecto, rechazo de geometría inesperada, exigencia
+de soporte de imágenes y rechazo antes de dibujar si falla el redibujado de la UI.
+FBInk y X11 están simulados en estas pruebas; no son resultados de pantalla física.
+
+El diagnóstico de lectura sí se ejecutó en el Kindle y su informe completo se
+recuperó por USB. Los hallazgos constan en
+[hardware-observations.md](hardware-observations.md). La imagen almacenada en el
+dispositivo coincide por SHA-256 con el PNG del repositorio. La prueba visual de
+25 segundos y las pruebas de suspensión/RTC permanecen pendientes.
