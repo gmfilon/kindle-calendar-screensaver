@@ -1,0 +1,69 @@
+{
+  "consulted_date_local": "2026-11-06",
+  "timezone": "America/Argentina/Buenos_Aires",
+  "hardware_tested": false,
+  "sources": [
+    {
+      "project": "Véra selector",
+      "revision": "e2326a755725a0e034911618160350a02eaf61b7",
+      "url": "https://github.com/KindleModding/kindlemodding.github.io/blob/e2326a755725a0e034911618160350a02eaf61b7/static/vera/index.html",
+      "observed_live_url": "https://kindlemodding.org/vera/",
+      "claim": "PW6 / Paperwhite 12th gen / 5.20.1.0.2 explicitly listed; 1272x1696 panel group",
+      "download_sha256": "6ba0f3615f64c37e2dfd21ea0c6b413e414c7ec27af708f0a9e75341f947c881"
+    },
+    {
+      "project": "Custom Screensaver",
+      "version": "v0.6.0",
+      "revision": "c73cf75c47c0cc55a31464ce597f0b83a793ee52",
+      "url": "https://github.com/chengandre/kindle-custom-screensaver/releases/tag/v0.6.0",
+      "source_url": "https://raw.githubusercontent.com/chengandre/kindle-custom-screensaver/c73cf75c47c0cc55a31464ce597f0b83a793ee52/src/scripts/custom_ss_daemon.sh",
+      "claim": "PW6 matrix excludes target firmware; daemon has screen ownership and restoration responsibilities",
+      "download_sha256": "8811c6968cc97b3e38e65592ebe4bb7991c0e52a185ca2b10498f7cae0d9cd05"
+    },
+    {
+      "project": "KindleCron",
+      "version": "v0.2.0",
+      "release_commit_short": "79e4b43",
+      "main_revision_observed": "fde930878acb5cbd8390f6707bf6a3d6f333715d",
+      "url": "https://github.com/lennardollesch/KindleCron/releases/tag/v0.2.0",
+      "source_url": "https://raw.githubusercontent.com/lennardollesch/KindleCron/v0.2.0/kron/daemon.go",
+      "claim": "powerd RTC integration exists; published tested models do not include PW6",
+      "download_sha256": "a3086d784a07cd4e5020f0954f63f129e8c1d124d6a44dd47ce204dbffb55974"
+    },
+    {
+      "project": "KindleCron scheduler timezone",
+      "version": "v0.2.0",
+      "url": "https://raw.githubusercontent.com/lennardollesch/KindleCron/v0.2.0/kron/schedule.go",
+      "claim": "time.Local used for parsing; device timezone must be validated",
+      "download_sha256": "8a74684d20894dc8328e6eeeedb2079ebd70d4c565ee5fd6b0b1347226589d67"
+    },
+    {
+      "project": "FBInk",
+      "revision": "886f25f13368859ad8a899b88d04c26e19cda32e",
+      "url": "https://github.com/NiLuJe/FBInk/blob/886f25f13368859ad8a899b88d04c26e19cda32e/fbink_device_id.c",
+      "claim": "PW6 identified as Sangria/Bellatrix4/MTK; not a target-firmware end-to-end test"
+    },
+    {
+      "project": "Kindle Dynamic Calendar",
+      "url": "https://github.com/ikeee/kindle-dynamic-calendar",
+      "claim": "Upstream README states tested PW1 / 5.6.1.1 only"
+    }
+  ],
+  "bundled_fonts": [
+    {
+      "file": "assets/fonts/NotoSans-Bold.ttf",
+      "sha256": "c976e4b1b99edc88775377fcc21692ca4bfa46b6d6ca6522bfda505b28ff9d6a",
+      "url": "https://raw.githubusercontent.com/notofonts/noto-fonts/main/hinted/ttf/NotoSans/NotoSans-Bold.ttf"
+    },
+    {
+      "file": "assets/fonts/NotoSans-Regular.ttf",
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "url": "https://raw.githubusercontent.com/notofonts/noto-fonts/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf"
+    },
+    {
+      "file": "assets/fonts/OFL.txt",
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+      "url": "https://raw.githubusercontent.com/notofonts/noto-fonts/main/LICENSE"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "timezone": "America/Argentina/Buenos_Aires",
+  "size": [
+    1272,
+    1696
+  ],
+  "mode": "L",
+  "start": "2026-11-06",
+  "end": "2026-11-06",
+  "images": {
+    "2026-11-06": {
+      "file": "2026-11-06.png",
+      "sha256": "4d19879b4c6b2e27ced2afc1296c188666bbdbb95a30790efe92f4b6c9629be6"
+    }
+  },
+  "fonts": {
+    "NotoSans-Bold.ttf": "c976e4b1b99edc88775377fcc21692ca4bfa46b6d6ca6522bfda505b28ff9d6a",
+    "NotoSans-Regular.ttf": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5"
+  }
+}
