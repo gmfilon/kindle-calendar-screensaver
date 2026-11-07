@@ -46,7 +46,7 @@ La exportación predeterminada queda fijada en 270° horarios y tamaño nativo
 1272×1696. Se comprueba que girar físicamente el dispositivo con su parte inferior
 hacia la izquierda recupera exactamente el diseño horizontal legible.
 
-## Pendiente o no ejecutado
+## Pendiente o no ejecutado al cerrar 0.2.0
 
 * GitHub Actions tiene matriz Linux/Python 3.9 y 3.12 con herramientas nativas.
   Este informe registra las pruebas locales; los resultados remotos se consultan
@@ -71,5 +71,13 @@ FBInk y X11 están simulados en estas pruebas; no son resultados de pantalla fí
 El diagnóstico de lectura sí se ejecutó en el Kindle y su informe completo se
 recuperó por USB. Los hallazgos constan en
 [hardware-observations.md](hardware-observations.md). La imagen almacenada en el
-dispositivo coincide por SHA-256 con el PNG del repositorio. La prueba visual de
-25 segundos y las pruebas de suspensión/RTC permanecen pendientes.
+dispositivo coincide por SHA-256 con el PNG del repositorio.
+
+## Estado al pausar el proyecto
+
+36 pruebas locales aprobadas. Las comprobaciones adicionales incluyen abortar
+al salir de la pantalla de reposo, restituir el salvapantallas tras un fallo de
+dibujo y esperar la confirmación de descarga y restitución del módulo.
+La validación física de la imagen fija en reposo, el fallo del piloto de fecha
+y el resultado de las dos alarmas se registran en
+[observaciones de hardware](hardware-observations.md).

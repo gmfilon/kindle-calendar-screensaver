@@ -1,8 +1,10 @@
 # Kindle Calendar Screensaver
 
 Calendario mensual offline, en español, para Paperwhite 12 (PW6, 2024).
-Prototipo **0.3.0** con diagnóstico ejecutado en el Kindle; integración de pantalla
-de reposo y RTC pendiente de validación. No es todavía un screensaver funcional.
+**Proyecto en pausa.** El prototipo mostró el calendario en un ciclo de reposo
+y restauró el salvapantallas original al despertar. La selección de fecha real y
+el refresco automático a medianoche siguen pendientes. Los ensayos del Kindle
+objetivo quedaron desactivados y sus archivos se conservaron.
 
 Véra declara soporte para PW6 con **5.20.1.0.2**. No se ha confirmado en este
 proyecto que el conjunto pantalla + suspensión + RTC funcione en ese firmware.
@@ -34,7 +36,6 @@ La carpeta de salida debe estar vacía. Se puede cambiar el tamaño con `--width
 y `--height`. El giro se realiza una sola vez en la computadora; no se necesita
 elegir entre variantes al instalar. `--rotation` permite sobrescribirlo para
 diagnóstico, pero el uso previsto es el predeterminado con botón a la izquierda.
-El renderizador real aún debe comprobarse para evitar un segundo giro automático.
 El manifiesto distingue tamaño de diseño, tamaño exportado y giro horario.
 Las fuentes Noto Sans están incluidas con su licencia OFL.
 La reproducibilidad de bytes se comprueba con el mismo Python/Pillow y fuentes;
@@ -60,10 +61,11 @@ el firmware. La desinstalación conserva un staging modificado para revisión.
 | --- | --- |
 | Generador, manifiesto y verificación SHA-256 | Implementados y probados en computadora |
 | Diagnóstico físico mediante KPM | Ejecutado; root, firmware, ABI y propiedades powerd confirmados |
-| Vista previa manual de 25 segundos | Preparada y probada con simulación; ensayo físico pendiente |
+| Vista previa y ciclo de reposo con imagen fija | Probados en el Kindle; restitución del salvapantallas comprobada |
 | Ejecutor POSIX de una sola ejecución | Probado con reloj y backend simulados |
-| Planificador | Modelo ejecutable; KindleCron es candidato externo |
-| Backend de pantalla / puente de eventos | Pendiente de implementar tras observar el Kindle |
+| Selección de fecha en reposo | Simulada en computadora; el piloto en Kindle abortó al verificar el manifiesto |
+| Planificador | Modelo ejecutable; dos solicitudes de alarma no produjeron un despertar automático en el Kindle |
+| Backend de pantalla / puente de eventos | Prototipo supervisado para un ciclo, sin integración permanente |
 | Arranque automático y recuperación de pantalla | Diseño y protocolo de validación; no instalados |
 | Actualización durante suspensión profunda | No verificada en PW6 / 5.20.1.0.2 |
 

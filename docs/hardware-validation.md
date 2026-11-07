@@ -1,7 +1,8 @@
 # Validación física pendiente
 
-Todos estos ensayos están **sin ejecutar**. Requieren Kindle real; los que ejecutan
-jailbreak, cambian pantalla, programan RTC o habilitan arranque requieren aprobación
+La sonda inicial y la prueba visual desde la biblioteca ya se ejecutaron.
+Ver [observaciones de hardware](hardware-observations.md) para su alcance.
+Los ensayos que ejecutan jailbreak, cambian pantalla, programan RTC o habilitan arranque requieren aprobación
 explícita. Registrar versión del firmware, modelo, hashes de binarios, estado de
 anuncios/PIN, reloj, zona, batería y resultado en cada ensayo. No usar serial completo.
 
@@ -39,6 +40,11 @@ para descubrir que el RTC no funciona. Un retorno 0 de LIPC no aprueba H04.
 la transición y el siguiente despertar con instrumentación del dispositivo.
 La primera captura debe evitar mantener USB conectado o una sesión interactiva
 que impida la suspensión. Definir instrumentación de bajo impacto según H01.
+En el PW6 objetivo, las solicitudes de 180 s a `rtcWakeup` y `rtcWakeup2`
+devolvieron éxito, pero el reloj no produjo un despertar en ninguna de las
+dos pruebas. En la segunda, powerd registró un objetivo a 3589 s al suspender.
+Repetir H04 sólo con instrumentación adicional de la selección de alarma o
+con un cambio de procedimiento respaldado por evidencia.
 
 El modelo de software no incorpora la latencia física del panel o despertar.
 Objetivo inicial: mostrar el nuevo día dentro de 60 s de medianoche sin intervención;

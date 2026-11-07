@@ -18,7 +18,14 @@
       "url": "https://github.com/chengandre/kindle-custom-screensaver/releases/tag/v0.6.0",
       "source_url": "https://raw.githubusercontent.com/chengandre/kindle-custom-screensaver/c73cf75c47c0cc55a31464ce597f0b83a793ee52/src/scripts/custom_ss_daemon.sh",
       "claim": "PW6 matrix excludes target firmware; daemon has screen ownership and restoration responsibilities",
-      "download_sha256": "8811c6968cc97b3e38e65592ebe4bb7991c0e52a185ca2b10498f7cae0d9cd05"
+      "download_sha256": "8811c6968cc97b3e38e65592ebe4bb7991c0e52a185ca2b10498f7cae0d9cd05",
+      "tested_release_asset": {
+        "url": "https://github.com/chengandre/kindle-custom-screensaver/releases/download/v0.6.0/custom-screensaver-0.6.0-kindlehf.zip",
+        "zip_sha256": "3ddd187cec61ba5d128d961fd4fabce5a54b8d852f10dd3eb4e538f970379224",
+        "member": "extensions/custom-screensaver/bin/screensaver_shield",
+        "member_sha256": "0d3661b6a5102eb268474d2ad52d9f89ed69eb60f163e1630eea4b315ef99f47",
+        "license_member": "extensions/custom-screensaver/LICENSE"
+      }
     },
     {
       "project": "KindleCron",

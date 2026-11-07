@@ -5,8 +5,10 @@ remota y lectura de código primario; ningún Kindle fue conectado o modificado.
 Los enlaces `main`, `master` y `latest` pueden cambiar; el registro
 [sources.json](sources.json) identifica las revisiones y hashes consultados.
 La referencia a no haber conectado un Kindle describe esa investigación inicial.
-La [validación posterior](hardware-observations.md) confirma jailbreak, entorno de
-ejecución y diagnóstico de lectura en el equipo objetivo; RTC y reposo aún no se probaron.
+La [validación posterior](hardware-observations.md) confirma jailbreak, vista
+previa en la biblioteca y suspensión profunda. Powerd aceptó dos solicitudes de
+RTC breves. En la segunda registró una hora de alarma distinta de la solicitada
+al entrar en suspensión. Ninguna produjo el despertar esperado.
 
 ## Conclusión
 
@@ -20,8 +22,8 @@ avanzar sin resolver ese bloqueo.
 | --- | --- | --- |
 | Jailbreak exacto | Selector oficial Véra, entrada PW6; validación posterior | Ejecutado en la unidad objetivo; Jobman y diagnóstico root confirmados |
 | Sustitución de reposo | Custom Screensaver: matriz PW6 | Probada por upstream con otros firmwares; pendiente en el objetivo |
-| Control de framebuffer | FBInk reconoce PW6/Bellatrix4/MTK | Soporte en código; binario/rotación/refresco por validar |
-| Despertar desde suspensión | KindleCron y código powerd | Probado upstream en otros modelos, no en PW6 |
+| Control de framebuffer | FBInk reconoce PW6/Bellatrix4/MTK | PNG y refresco comprobados desde la biblioteca en el equipo objetivo |
+| Despertar desde suspensión | KindleCron, código powerd y prueba física | Suspensión profunda comprobada. Las dos variantes de solicitud breve no produjeron un despertar |
 | Calendario y selección offline | Implementación local | Probados; no dependen del dispositivo |
 | Autonomía y retorno a suspensión | Requiere medidas físicas | No medidos; no se promete duración de batería |
 
@@ -77,7 +79,8 @@ escribe `rtcWakeup` de `com.lab126.powerd` durante `readyToSuspend`, atiende eve
 LIPC y mantiene brevemente despierto al equipo mientras hay trabajo. Su daemon
 permanece residente, pero no implica CPU permanentemente activa. No es un cron
 convencional. El subcomando `setup` crea un enlace en `/usr/bin`: evitarlo y usar
-ruta absoluta. No ejecutamos ningún setter ni instalamos su binario.
+ruta absoluta. La prueba física usó un pedido acotado a powerd desde nuestro
+lanzador, sin instalar el binario de KindleCron.
 
 En PW6 aún hay que confirmar propiedades disponibles, unidades, ventana aceptada,
 despertar real desde suspensión, alarmas competidoras y retorno al mismo estado.
