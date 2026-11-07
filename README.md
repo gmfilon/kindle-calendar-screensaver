@@ -1,14 +1,14 @@
 # Kindle Calendar Screensaver
 
 Calendario mensual offline, en español, para Paperwhite 12 (PW6, 2024).
-Prototipo **0.1.1 para computadora**; integración con el Kindle pendiente de
+Prototipo **0.2.0 para computadora**; integración con el Kindle pendiente de
 validación física. No es todavía una instalación funcional de screensaver.
 
 Véra declara soporte para PW6 con **5.20.1.0.2**. No se ha confirmado en este
 proyecto que el conjunto pantalla + suspensión + RTC funcione en ese firmware.
 Ver [investigación y fuentes](docs/feasibility.md).
 
-![Calendario del 6 de noviembre de 2026](preview/current/2026-11-06.png)
+![Calendario apaisado con botón del Kindle a la izquierda](preview/landscape.png)
 
 ## Ejecutar en una computadora
 
@@ -26,9 +26,17 @@ export PYTHONPATH="$PWD/src"
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-Cada PNG mide 1272 × 1696, usa grises de 8 bits y tiene fecha ISO como nombre.
+El diseño predeterminado es apaisado: fecha grande a la izquierda y calendario a
+la derecha, con el botón de encendido del Kindle a la izquierda. El lienzo mide
+1696 × 1272; se exporta una sola orientación, girada 270° en sentido horario, como
+PNG nativo de 1272 × 1696. Usa grises de 8 bits y fecha ISO como nombre.
 La carpeta de salida debe estar vacía. Se puede cambiar el tamaño con `--width`
-y `--height`. Las fuentes Noto Sans están incluidas con su licencia OFL.
+y `--height`. El giro se realiza una sola vez en la computadora; no se necesita
+elegir entre variantes al instalar. `--rotation` permite sobrescribirlo para
+diagnóstico, pero el uso previsto es el predeterminado con botón a la izquierda.
+El renderizador real aún debe comprobarse para evitar un segundo giro automático.
+El manifiesto distingue tamaño de diseño, tamaño exportado y giro horario.
+Las fuentes Noto Sans están incluidas con su licencia OFL.
 La reproducibilidad de bytes se comprueba con el mismo Python/Pillow y fuentes;
 no se promete identidad entre diferentes versiones de FreeType o zlib.
 

@@ -4,7 +4,7 @@ from datetime import date, datetime
 
 from .calendar import wake_plan
 from .deployment import install, uninstall
-from .generator import generate, verify
+from .generator import SIZE, generate, verify
 
 
 def main():
@@ -14,8 +14,10 @@ def main():
     gen.add_argument("--start", type=date.fromisoformat, required=True)
     gen.add_argument("--end", type=date.fromisoformat, required=True)
     gen.add_argument("--out", required=True)
-    gen.add_argument("--width", type=int, default=1272)
-    gen.add_argument("--height", type=int, default=1696)
+    gen.add_argument("--width", type=int, default=SIZE[0])
+    gen.add_argument("--height", type=int, default=SIZE[1])
+    gen.add_argument("--rotation", type=int, choices=(0, 90, 180, 270), default=None,
+                     help="Giro horario; por defecto 270° para diseño horizontal y botón a la izquierda")
     check = sub.add_parser("verify")
     check.add_argument("bundle")
     plan = sub.add_parser("plan")
@@ -28,7 +30,7 @@ def main():
     args = parser.parse_args()
     try:
         if args.command == "generate":
-            result = generate(args.start, args.end, args.out, (args.width, args.height))
+            result = generate(args.start, args.end, args.out, (args.width, args.height), args.rotation)
             print(f"Generadas {len(result['images'])} imágenes en {args.out}")
         elif args.command == "verify":
             print(f"Verificadas {len(verify(args.bundle)['images'])} imágenes")

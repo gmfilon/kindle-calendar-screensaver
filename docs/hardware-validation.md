@@ -12,13 +12,15 @@ anuncios/PIN, reloj, zona, batería y resultado en cada ensayo. No usar serial c
 * Comportamiento stock registrado y restauración de renderizadores ya comprobada.
 * Batería suficiente y prueba supervisada para las primeras modificaciones.
 * Mantener salida/errores por eventos; un logger de polling puede falsear el consumo.
+* En modelos con anuncios, registrar `ad_screensaver`, comprobar que no sobrescribe
+  la imagen y que se restaura al detener. Upstream no confirma ese caso en hardware.
 
 ## Secuencia y aceptación
 
 | ID | Ensayo | Evidencia para aprobar |
 | --- | --- | --- |
 | H01 | Sonda de lectura y observación de eventos | ABI, panel, propiedades/eventos y utilidades reales registrados |
-| H02 | Pantalla estática con upstream, sin calendario/RTC | Imagen completa sin recorte; lector/PIN intactos; reversión stock |
+| H02 | Una imagen estática apaisada, sin calendario/RTC | Fecha a izquierda y grilla a derecha; PNG girado 270° sin giro extra; apoyo sobre borde largo con botón a izquierda; lector/PIN intactos y reversión stock |
 | H03 | Suspensión stock real sin USB | Logs/contadores muestran entrada y salida; imagen estática no es prueba |
 | H04 | Alarma breve supervisada desde suspensión | Se despierta sin botón, USB ni red; registrar delta solicitado y latencia |
 | H05 | Retorno tras tarea | powerd vuelve a suspender; ningún proceso fuerza Active permanentemente |

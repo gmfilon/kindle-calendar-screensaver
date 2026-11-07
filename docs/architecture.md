@@ -30,6 +30,10 @@ no capacidades implícitas del diagrama. El simulador sólo modela decisiones.
   medianoche en `America/Argentina/Buenos_Aires`. Rechaza datetimes sin zona.
 * `generator.py`: PNG `L` de 8 bits, fuentes locales con licencia, manifiesto con
   cobertura inclusiva, tamaño y checksums. Rechaza sobrescribir un bundle existente.
+  El diseño por defecto es horizontal, 1696×1272: mes/año, fecha y día de semana a
+  la izquierda; grilla de lunes a domingo a la derecha. La exportación predeterminada
+  gira 270° horarios para el panel nativo vertical: botón del Kindle a la izquierda,
+  sin rotar el lector Amazon. `render` conserva el lienzo legible para vista previa.
 * `calendar-worker.sh`: proceso POSIX de una ejecución; elige la fecha real del
   reloj en cada llamada. Valida checksum, consulta estado, reintenta tres veces y
   registra la fecha sólo después de un render exitoso. No tiene red ni setters.
@@ -79,6 +83,11 @@ No ejecutar el worker como scriptlet visible en pantalla: puede dibujar stdout.
 El orden entre el evento de reposo y el dibujo upstream requiere un hook
 sincronizado; dos listeners independientes no garantizan ese orden. No se ofrece
 una receta de copiar archivos y arrancar ambos daemons como si ya fuera correcta.
+
+La posición elegida es apoyar el borde largo con el botón a la izquierda. Exportar
+una sola orientación y validar una imagen estática en esa posición. No asumir que
+Custom Screensaver conservará una imagen girada: su normalización de orientación
+puede requerir adaptar el backend. La vista previa apaisada no demuestra ese paso.
 
 ## Tiempo, almacenamiento y fallos
 

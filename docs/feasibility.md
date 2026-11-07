@@ -46,6 +46,10 @@ es la referencia preferida para conservar el lector Amazon. Su
 declara `kindlehf`, firmware desde 5.16.3 y pruebas PW6 en 5.18.6, 5.19.5 y 5.19.6;
 no incluye PW6/5.20.1.0.2. El soporte de Colorsoft/5.20.1 no confirma nuestro caso.
 Requiere un daemon y auxiliares de pantalla; no arranca automáticamente tras reboot.
+Además, upstream declara que `ad_screensaver` no fue verificado en un Kindle físico
+con Special Offers. Los equipos con anuncios requieren una prueba específica; no
+asumir que modo avión desactiva ese renderizador. Su salida se normaliza a vertical:
+para nuestro diseño horizontal hay que validar el giro de la imagen y el backend.
 
 Su [daemon](https://github.com/chengandre/kindle-custom-screensaver/blob/c73cf75c47c0cc55a31464ce597f0b83a793ee52/src/scripts/custom_ss_daemon.sh)
 escucha eventos de reposo/desbloqueo, deshabilita renderizadores Amazon mediante
@@ -95,6 +99,8 @@ para instalarlo en esta fase.
 | --- | --- |
 | Firmware o jailbreak incompatible | Confirmar modelo y versión; no downgrade ni firmware automático |
 | Amazon sobrescribe el calendario | Un solo propietario de pantalla; probar eventos, shield y PIN |
+| Equipo con anuncios | `ad_screensaver` no verificado por upstream; probar restitución de anuncios y reposo |
+| Normalización a vertical | Validar una imagen girada 270°, botón a izquierda y grilla a derecha |
 | RTC no despierta o alarma es reemplazada | Ensayo breve supervisado, luego medianoche offline sin USB |
 | CPU queda despierta | Tareas con timeout; medir suspensión y batería frente a un control |
 | Fallo del daemon deja renderizadores apagados | Watchdog por supervisor, restauración probada antes de autostart |

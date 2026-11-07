@@ -20,6 +20,11 @@ compatible el hardware. No usar este documento como autorización de jailbreak.
 
 No conectar ni modificar el dispositivo desde los scripts de este repositorio.
 
+Si muestra anuncios en reposo, la integración de pantalla tiene una incertidumbre
+adicional: Custom Screensaver no documenta validación física de `ad_screensaver`.
+Mantener modo avión no demuestra que ese renderizador deje de actuar. No quitar
+anuncios ni modificar sus componentes como paso implícito de esta instalación.
+
 ## 2. Prototipo y paquete en computadora
 
 Desde el checkout completo, seguir los comandos del README. Generar un horizonte
@@ -38,6 +43,13 @@ No regenerar encima de una carpeta existente. Usar otra carpeta para cada versi�
 Revisar visualmente los PNG y leer `manifest.json`, `SHA256SUMS` y la suma del ZIP.
 Guardar el paquete anterior para revertir. El comando `unstage` elimina únicamente
 un staging propio sin modificaciones y conserva los archivos ajenos del padre.
+
+La versión 0.2.0 diseña en apaisado de 1696×1272 y exporta por defecto un PNG nativo
+de 1272×1696 girado 270° horarios, para apoyar el Kindle sobre el borde largo con
+el botón a la izquierda. Probar primero una sola imagen en esa posición, sin
+variantes alternativas. Verificar que el backend no aplique otro giro. No cambiar
+la orientación global del lector para conseguir la del screensaver. La vista previa
+`preview/landscape.png` muestra cómo se verá al apoyar el dispositivo.
 
 ## 3. Jailbreak — requiere aprobación explícita independiente
 

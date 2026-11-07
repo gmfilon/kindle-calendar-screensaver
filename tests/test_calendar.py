@@ -58,11 +58,32 @@ class CalendarTests(unittest.TestCase):
     def test_selected_cell_is_black_with_white_numeral(self):
         image = render(date(2026, 11, 6))
         self.assertEqual(image.mode, "L")
-        self.assertEqual(image.size, (1272, 1696))
-        self.assertEqual(image.getpixel((745, 945)), 0)
+        self.assertEqual(image.size, (1696, 1272))
+        self.assertEqual(image.getpixel((1285, 513)), 0)
         self.assertEqual(image.getpixel((100, 100)), 255)
         # A six-week month must fit too.
         render(date(2026, 3, 31))
+
+    def test_landscape_export_rotates_without_changing_content(self):
+        from PIL import Image
+        day = date(2028, 2, 29)
+        landscape = render(day)
+        for rotation, inverse in ((90, Image.Transpose.ROTATE_90),
+                                  (270, Image.Transpose.ROTATE_270)):
+            rotated = render(day, rotation=rotation)
+            self.assertEqual(rotated.size, (1272, 1696))
+            self.assertEqual(rotated.transpose(inverse).tobytes(), landscape.tobytes())
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = generate(day, day, directory)
+            self.assertEqual(manifest["size"], [1272, 1696])
+            self.assertEqual(manifest["layout_size"], [1696, 1272])
+            self.assertEqual(manifest["layout"], "landscape")
+            self.assertEqual(manifest["rotation_clockwise"], 270)
+            verify(directory)
+            with Image.open(Path(directory)/(str(day)+".png")) as exported:
+                # Turning the physical Kindle clockwise puts its bottom on the left.
+                self.assertEqual(exported.transpose(Image.Transpose.ROTATE_270).tobytes(),
+                                 landscape.tobytes())
 
     def test_manifest_cannot_select_path_outside_bundle(self):
         import json

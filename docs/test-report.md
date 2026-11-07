@@ -7,7 +7,7 @@ Python 3.9.6 y Pillow 11.3.0 dentro de `.venv`.
 
 `PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v`
 
-**21 pruebas aprobadas.** Incluyen:
+**22 pruebas aprobadas en la revisión 0.2.0.** Incluyen:
 
 * Los 4800 meses de un ciclo gregoriano completo de 400 años: días completos,
   orden y alineación de lunes a domingo; excepciones de bisiestos seculares.
@@ -39,6 +39,12 @@ Revisión visual del PNG de 1272×1696 del 6 de noviembre de 2026: textos comple
 grilla alineada lunes-domingo, fecha grande y día 6 resaltado sin recortes.
 La revisión 0.1.1 elimina la fecha redundante y centra el día de la semana en
 76 px y negrita sobre el espacio de los dos renglones anteriores.
+La revisión 0.2.0 cambia el diseño predeterminado a 1696×1272: fecha a la izquierda
+y grilla a la derecha. Se comprueban los giros 90°/270° mediante inversión exacta
+de píxeles y la verificación del manifiesto de una exportación girada.
+La exportación predeterminada queda fijada en 270° horarios y tamaño nativo
+1272×1696. Se comprueba que girar físicamente el dispositivo con su parte inferior
+hacia la izquierda recupera exactamente el diseño horizontal legible.
 
 ## Pendiente o no ejecutado
 

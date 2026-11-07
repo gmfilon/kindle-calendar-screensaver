@@ -6,12 +6,18 @@
     1696
   ],
   "mode": "L",
+  "layout": "landscape",
+  "layout_size": [
+    1696,
+    1272
+  ],
+  "rotation_clockwise": 270,
   "start": "2026-11-06",
   "end": "2026-11-06",
   "images": {
     "2026-11-06": {
       "file": "2026-11-06.png",
-      "sha256": "4d19879b4c6b2e27ced2afc1296c188666bbdbb95a30790efe92f4b6c9629be6"
+      "sha256": "d9a19871727db0bbdb0c26058d0faf841ddee1f50af1660c1cc49d45800447cf"
     }
   },
   "fonts": {
